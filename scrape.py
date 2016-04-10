@@ -32,7 +32,7 @@ def scrape_thread(thread):
 page = html.parse("http://sjogrensworld.org/forums/index.php")
 f = open('sjogrens.csv', 'w')
 w = unicodecsv.writer(f, encoding='utf-8', lineterminator='\n')
-w.writerow(['uniqueID', 'qid', 'localID', 'title', 'poster', 'date', 'replyTo', 'content', 'infered_replies', 'group'],)
+w.writerow(['uniqueID', 'qid', 'localID', 'title', 'poster', 'date', 'replyTo', 'content', 'infered_replies', 'subforum'],)
 for forum in page.xpath('//td[@class="info"]/a'):
     subforum = forum.text
     forum_page = html.parse(forum.attrib['href'])
