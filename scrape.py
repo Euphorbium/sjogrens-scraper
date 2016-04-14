@@ -41,7 +41,7 @@ for forum in page.xpath('//td[@class="info"]/a'):
     forum_page = html.parse(forum.attrib['href'])
     while True:
         for thread in forum_page.xpath('//td[contains(@class, "subject")]//span/a'):
-            print thread.attrib['href'], thread.text
+            print thread.attrib['href']
             scrape_thread(thread.attrib['href'])
         next_page = forum_page.xpath('//div[@class="pagelinks"]/strong/following-sibling::a[1]')
         if next_page:
